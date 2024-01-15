@@ -19,6 +19,7 @@ _git_bash_completion_paths=(
 	# Standard locations
 	"${GIT_EXE%/*}/../share/git-core/git-completion.bash"
 	"${GIT_EXE%/*}/../share/git-core/contrib/completion/git-completion.bash"
+	"${GIT_EXE%/*}/../share/doc/git/contrib/completion/git-completion.bash"
 	"${GIT_EXE%/*}/../etc/bash_completion.d/git-completion.bash"
 	# MacOS non-system locations
 	"${_git_bash_completion_xcrun_git%/bin/git}/share/git-core/git-completion.bash"
@@ -27,16 +28,16 @@ _git_bash_completion_paths=(
 # Load the first completion file found
 _git_bash_completion_found=false
 for _comp_path in "${_git_bash_completion_paths[@]}"; do
-	if [[ -r "$_comp_path" ]]; then
+	if [[ -r "${_comp_path}" ]]; then
 		_git_bash_completion_found=true
 		# shellcheck disable=SC1090 # don't follow
-		source "$_comp_path"
+		source "${_comp_path}"
 		break
 	fi
 done
 
 # Cleanup
-if [[ "${_git_bash_completion_found}" == false ]]; then
+if [[ ${_git_bash_completion_found} == false ]]; then
 	_log_warning "no completion files found - please try enabling the 'system' completion instead."
 fi
 unset "${!_git_bash_completion@}"
