@@ -5,7 +5,7 @@
 plugins aliases
 plugins base
 plugins extract
-plugins explain
+plugins encode64
 plugins ssh
 plugins sudo
 plugins thefuck
