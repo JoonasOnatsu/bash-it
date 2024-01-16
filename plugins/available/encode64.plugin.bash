@@ -22,8 +22,12 @@ function encodefile64() {
 	if [[ $# -eq 0 ]]; then
 		printf 'You must provide a filename!\n' >&2
 	else
-		base64 -i "$1" -o "$1.txt"
-		printf "%s\'s content encoded in base64 and saved as \"%s.txt\"\n" "${1}" "${1}" >&1
+		if [[ -f ${1} ]]; then
+			base64 -i "${1}" -o "${1}.b64"
+			printf 'Base64-encoded contents of file "%s" have been saved as "%s"\n' "${1}" "${1}.b64" >&1
+		else
+			printf '"%s" is not a file!\n' "${1}" >&2
+		fi
 	fi
 }
 
