@@ -1,12 +1,42 @@
 # This is the default profile of Bash-it
+# cSpell:disable
 
 # plugins
+plugins aliases
 plugins base
+plugins extract
+plugins explain
+plugins ssh
+plugins sudo
+plugins thefuck
+plugins tmux
+plugins xterm
 
 # completion
 completion aliases
 completion bash-it
 completion system
 
+# Breaks alias completion.
+# See https://github.com/Bash-it/bash-it/issues/2174
+# completion aliases
+completion bash-it
+completion cargo
+completion dmidecode
+completion docker
+completion export
+completion git
+completion go
+completion makefile
+completion rustup
+completion ssh
+completion system
+completion tmux
+
 # aliases
-aliases general
+#aliases general
+aliases bash-it
+aliases docker
+aliases fuck
+aliases tmux
+aliases uuidgen
